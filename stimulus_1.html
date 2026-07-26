@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Méridiens d'Afrique — Tombouctou et les manuscrits de l'Afrique savante</title>
+
+<!--
+  ===================================================================
+  STIMULUS EXPÉRIMENTAL — mémoire de master en Sciences de Gestion
+  ===================================================================
+
+  UTILISATION
+    Condition 1 (avec bouton de fermeture) : stimulus.html?c=1
+    Condition 2 (sans bouton de fermeture) : stimulus.html?c=2
+
+  PARAMÈTRES MODIFIABLES
+    Tous regroupés dans l'objet REGLAGES, plus bas dans le script.
+    Les couleurs sont regroupées dans les variables CSS :root, ci-dessous.
+
+  NOTE DE NOMMAGE
+    Aucun identifiant, classe ou variable ne contient les chaînes filtrées
+    par les logiciels de blocage. Ne renommez rien sans vérifier ce point.
+  ===================================================================
+-->
+
+<style>
+:root{
+  /* ---- Palette de l'article (modifiable) ---- */
+  --fond:#FBF7F0;
+  --fond-alt:#F3EBDD;
+  --encre:#2A2520;
+  --encre-douce:#5C5348;
+  --filet:#E0D4BF;
+  --brun:#8A5A2B;
+
+  /* ---- Palette de l'offre (modifiable) ---- */
+  --graphite:#171A21;
+  --nuit:#0E1730;
+  --or:#D4A34A;
+  --or-clair:#EBC782;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+html,body{margin:0;padding:0;}
+
+body{
+  background:var(--fond);
+  color:var(--encre);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+  overflow-wrap:break-word;
+}
+
+/* ============ EN-TÊTE DU MAGAZINE ============ */
+.vx-entete{
+  background:var(--encre);
+  color:var(--fond);
+  padding:14px 18px;
+  text-align:center;
+}
+.vx-marque{
+  font-family:Georgia,serif;
+  font-size:20px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin:0;
+  font-weight:normal;
+}
+.vx-marque span{color:var(--or);}
+.vx-rubrique{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#B9AE9C;
+  margin:6px 0 0;
+}
+
+/* ============ AVIS DE LECTURE ============ */
+.vx-avis{
+  background:var(--fond-alt);
+  border-bottom:1px solid var(--filet);
+  padding:12px 18px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--encre-douce);
+  text-align:center;
+}
+.vx-avis strong{color:var(--encre);}
+
+/* ============ ARTICLE ============ */
+.vx-corps{
+  max-width:680px;
+  margin:0 auto;
+  padding:26px 18px 40px;
+}
+.vx-titre{
+  font-size:28px;
+  line-height:1.25;
+  margin:8px 0 14px;
+  font-weight:normal;
+}
+.vx-chapo{
+  font-size:18px;
+  color:var(--encre-douce);
+  font-style:italic;
+  border-left:3px solid var(--brun);
+  padding-left:14px;
+  margin:0 0 22px;
+}
+.vx-signature{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px;
+  color:var(--encre-douce);
+  border-top:1px solid var(--filet);
+  border-bottom:1px solid var(--filet);
+  padding:10px 0;
+  margin:0 0 26px;
+}
+.vx-soustitre{
+  font-size:21px;
+  line-height:1.35;
+  margin:34px 0 12px;
+  color:var(--brun);
+  font-weight:normal;
+}
+.vx-corps p{margin:0 0 16px;}
+.vx-exergue{
+  font-size:20px;
+  line-height:1.5;
+  color:var(--brun);
+  font-style:italic;
+  text-align:center;
+  margin:28px 0;
+  padding:18px 10px;
+  border-top:1px solid var(--filet);
+  border-bottom:1px solid var(--filet);
+}
+.vx-illus{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:26px 0 8px;
+  border-radius:3px;
+}
+.vx-legende{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  color:var(--encre-douce);
+  text-align:center;
+  margin:0 0 26px;
+  font-style:italic;
+}
+
+/* ============ FIN DE LECTURE ============ */
+.vx-fin{
+  max-width:680px;
+  margin:0 auto;
+  padding:0 18px 60px;
+}
+.vx-fin-carte{
+  background:var(--fond-alt);
+  border:1px solid var(--filet);
+  border-radius:6px;
+  padding:22px 18px;
+  text-align:center;
+}
+.vx-fin-carte h3{
+  font-size:19px;
+  margin:0 0 10px;
+  font-weight:normal;
+}
+.vx-fin-carte p{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--encre-douce);
+  margin:0 0 16px;
+}
+.vx-bouton{
+  display:inline-block;
+  width:100%;
+  max-width:320px;
+  min-height:52px;
+  padding:14px 20px;
+  background:var(--brun);
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.vx-bouton:active{opacity:.85;}
+
+.vx-jeton{
+  display:none;
+  margin-top:18px;
+}
+.vx-jeton.actif{display:block;}
+.vx-jeton-valeur{
+  font-family:"Courier New",Courier,monospace;
+  font-size:34px;
+  font-weight:bold;
+  letter-spacing:6px;
+  color:var(--encre);
+  background:#fff;
+  border:2px dashed var(--brun);
+  border-radius:6px;
+  padding:16px 8px;
+  margin:10px 0 14px;
+  word-break:break-all;
+}
+.vx-note{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12.5px;
+  line-height:1.6;
+  color:var(--encre-douce);
+  text-align:left;
+  background:#fff;
+  border:1px solid var(--filet);
+  border-radius:5px;
+  padding:14px;
+  margin-top:18px;
+}
+
+/* ============ MESSAGE D'ERREUR ============ */
+.vx-alerte{
+  max-width:560px;
+  margin:80px auto;
+  padding:26px 20px;
+  background:#fff;
+  border:2px solid #B03030;
+  border-radius:6px;
+  text-align:center;
+  font-family:Arial,Helvetica,sans-serif;
+}
+.vx-alerte h2{color:#B03030;font-size:20px;margin:0 0 12px;}
+.vx-alerte p{font-size:15px;line-height:1.6;color:var(--encre-douce);margin:0 0 8px;}
+.vx-alerte code{
+  background:var(--fond-alt);
+  padding:2px 6px;
+  border-radius:3px;
+  font-size:14px;
+}
+
+/* ============ VOILE PLEIN ÉCRAN ============ */
+.vx-voile{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(60,80,140,.35), transparent 60%),
+    linear-gradient(160deg, var(--graphite) 0%, var(--nuit) 100%);
+}
+.vx-voile.actif{display:flex;}
+
+.vx-carte{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  max-height:100%;
+  overflow-y:auto;
+  text-align:center;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  cursor:pointer;
+  padding:8px 4px;
+}
+
+.vx-fermer{
+  position:absolute;
+  top:0;
+  right:0;
+  width:46px;
+  height:46px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  color:#fff;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+.vx-fermer:active{background:rgba(255,255,255,.3);}
+
+.vx-etiquette{
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--or-clair);
+  border:1px solid rgba(212,163,74,.55);
+  border-radius:2px;
+  padding:4px 10px;
+  margin:26px 0 16px;
+}
+.vx-nom{
+  font-family:Georgia,serif;
+  font-size:34px;
+  letter-spacing:5px;
+  margin:0 0 4px;
+  font-weight:normal;
+}
+.vx-modele{
+  font-size:13px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:var(--or);
+  margin:0 0 6px;
+}
+.vx-slogan{
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:19px;
+  color:#DCE2F0;
+  margin:0 0 14px;
+}
+.vx-vehicule{width:100%;height:auto;display:block;margin:2px 0 12px;}
+.vx-depuis{
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#9BA6BF;
+  margin:0 0 2px;
+}
+.vx-prix{
+  font-family:Georgia,serif;
+  font-size:31px;
+  color:var(--or);
+  margin:0 0 12px;
+  line-height:1.2;
+}
+.vx-atouts{
+  list-style:none;
+  padding:0;
+  margin:0 0 16px;
+  font-size:14px;
+  line-height:1.9;
+  color:#E4E9F5;
+}
+.vx-atouts li::before{
+  content:"—";
+  color:var(--or);
+  margin-right:8px;
+}
+.vx-urgence{
+  font-size:12.5px;
+  color:#F0D7A6;
+  background:rgba(212,163,74,.12);
+  border:1px solid rgba(212,163,74,.3);
+  border-radius:4px;
+  padding:9px 12px;
+  margin:0 0 18px;
+  line-height:1.5;
+}
+.vx-cta{
+  display:block;
+  width:100%;
+  min-height:52px;
+  padding:15px;
+  background:linear-gradient(180deg,var(--or-clair),var(--or));
+  color:#2A1E08;
+  border:none;
+  border-radius:4px;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+}
+.vx-mentions{
+  font-size:10.5px;
+  color:#7C879E;
+  line-height:1.5;
+  margin:14px 0 26px;
+}
+
+@media (max-width:360px){
+  .vx-nom{font-size:28px;letter-spacing:3px;}
+  .vx-prix{font-size:26px;}
+  .vx-titre{font-size:24px;}
+  .vx-jeton-valeur{font-size:27px;letter-spacing:4px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     MESSAGE D'ERREUR (paramètre absent ou invalide)
+     ============================================================ -->
+<div class="vx-alerte" id="vxAlerte" style="display:none">
+  <h2>Lien incomplet</h2>
+  <p>Cette page ne peut pas s'ouvrir car son adresse est incomplète.</p>
+  <p>Merci de revenir au questionnaire et d'utiliser le lien qui vous a été communiqué.</p>
+  <p style="margin-top:14px"><code>?c=1</code> ou <code>?c=2</code> doit figurer à la fin de l'adresse.</p>
+</div>
+
+<!-- ============================================================
+     PAGE DU MAGAZINE
+     ============================================================ -->
+<div id="vxPage" style="display:none">
+
+  <header class="vx-entete">
+    <h1 class="vx-marque">Méridiens <span>d'Afrique</span></h1>
+    <p class="vx-rubrique">Patrimoine &middot; Histoire &middot; Savoirs</p>
+  </header>
+
+  <div class="vx-avis">
+    <strong>Avant de commencer :</strong> une question de compréhension sur cet article
+    vous sera posée à la fin. Prenez le temps de bien le lire.
+  </div>
+
+  <article class="vx-corps">
+
+    <h2 class="vx-titre">Tombouctou et les manuscrits de l'Afrique savante</h2>
+
+    <p class="vx-chapo">
+      Pendant des siècles, une ville du Sahel a rassemblé des dizaines de milliers de livres.
+      Des familles les ont gardés, recopiés et transmis, de génération en génération.
+      Voici l'histoire de ce trésor de papier.
+    </p>
+
+    <p class="vx-signature">Par la rédaction &middot; Dossier patrimoine</p>
+
+    <!-- ---------------- Section 1 ---------------- -->
+    <h3 class="vx-soustitre">Une ville née entre le sable et le fleuve</h3>
+
+    <p>
+      Tout commence il y a environ neuf cents ans. Au nord de la grande boucle du fleuve
+      Niger, des éleveurs nomades installent un campement. L'endroit est bien choisi. Il se
+      trouve juste là où le désert s'arrête et où le fleuve commence.
+    </p>
+    <p>
+      Ce détail change tout. Au nord, les caravanes traversent le Sahara à dos de chameau.
+      Au sud, les pirogues descendent et remontent le Niger. Tombouctou devient le point
+      de rencontre entre ces deux mondes.
+    </p>
+    <p>
+      Le sel arrive du désert, en grandes plaques blanches. L'or, les céréales et les
+      étoffes remontent du sud. Les marchands s'arrêtent, échangent, repartent. La ville
+      grandit vite.
+    </p>
+    <p>
+      Mais un autre commerce s'installe, plus discret et bien plus durable. Avec les
+      marchands voyagent des lettrés. Et avec les lettrés voyagent des livres.
+    </p>
+    <p>
+      Le nom même de la ville raconte une histoire. La tradition rapporte qu'une femme
+      touarègue, appelée Bouktou, gardait le puits autour duquel le campement s'était
+      formé. On disait alors « chez Bouktou ». Le nom serait resté.
+    </p>
+    <p>
+      Les caravanes qui s'y arrêtaient étaient énormes. Certaines comptaient plusieurs
+      milliers de chameaux. La traversée du désert durait deux mois. On voyageait la nuit,
+      pour éviter la chaleur, en se guidant sur les étoiles.
+    </p>
+    <p>
+      Arriver à Tombouctou, c'était donc arriver au bout d'un très long effort. La ville
+      offrait de l'eau, de l'ombre et un marché. Elle offrait aussi autre chose : des gens
+      avec qui parler, discuter, apprendre.
+    </p>
+
+    <!-- Illustration 1 : silhouette de ville -->
+    <svg class="vx-illus" viewBox="0 0 680 240" role="img"
+         aria-label="Silhouette stylisée d'une ville du Sahel au coucher du soleil">
+      <defs>
+        <linearGradient id="vxCiel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#F6E3C4"/>
+          <stop offset="100%" stop-color="#E8C79A"/>
+        </linearGradient>
+      </defs>
+      <rect width="680" height="240" fill="url(#vxCiel)"/>
+      <circle cx="530" cy="92" r="34" fill="#E3A85C" opacity=".85"/>
+      <g fill="#8A5A2B">
+        <!-- grande mosquée -->
+        <path d="M70 240V132h22v-14h16v14h22v108z"/>
+        <path d="M92 118l8-22 8 22z"/>
+        <!-- corps de bâtiments -->
+        <rect x="132" y="168" width="86" height="72"/>
+        <rect x="150" y="152" width="16" height="16"/>
+        <rect x="186" y="152" width="16" height="16"/>
+        <rect x="232" y="184" width="64" height="56"/>
+        <path d="M310 240V150h18v-12h14v12h18v90z"/>
+        <path d="M328 138l7-18 7 18z"/>
+        <rect x="374" y="176" width="78" height="64"/>
+        <rect x="392" y="160" width="14" height="16"/>
+        <rect x="422" y="160" width="14" height="16"/>
+        <rect x="466" y="192" width="58" height="48"/>
+        <path d="M540 240V162h16v-11h12v11h16v78z"/>
+        <rect x="596" y="180" width="62" height="60"/>
+      </g>
+      <g fill="#6E4520" opacity=".55">
+        <ellipse cx="180" cy="238" rx="150" ry="8"/>
+        <ellipse cx="500" cy="238" rx="150" ry="8"/>
+      </g>
+    </svg>
+    <p class="vx-legende">Tombouctou, au point de rencontre du désert et du fleuve Niger.</p>
+
+    <!-- ---------------- Section 2 ---------------- -->
+    <h3 class="vx-soustitre">L'âge d'or, sous les grands empires</h3>
+
+    <p>
+      Au quatorzième siècle, Tombouctou entre dans l'empire du Mali. C'est l'un des plus
+      puissants États du monde d'alors. Son souverain le plus connu, Mansa Moussa, fait un
+      long voyage vers l'est en 1324.
+    </p>
+    <p>
+      Il revient avec des idées, des richesses et des savants. Un architecte l'accompagne.
+      On lui doit la première grande mosquée de la ville, Djingareyber, encore debout
+      aujourd'hui.
+    </p>
+    <p>
+      Un siècle et demi plus tard, la ville passe sous l'autorité de l'empire songhaï.
+      C'est alors que Tombouctou atteint son sommet. Sous le règne de l'askia Mohamed, à
+      partir de 1493, les écoles se multiplient.
+    </p>
+    <p>
+      La ville compte trois grandes mosquées : Djingareyber, Sankoré et Sidi Yahya.
+      Chacune est aussi un lieu d'enseignement. Des étudiants viennent de toute l'Afrique
+      de l'Ouest et du Nord.
+    </p>
+    <p>
+      Les voyageurs de l'époque décrivent une ville où les livres se vendent plus cher que
+      les marchandises ordinaires. Posséder une bibliothèque devient une marque de
+      prestige, au moins autant que posséder de l'or.
+    </p>
+    <p>
+      Un métier apparaît alors : celui de copiste. Ces hommes passaient leurs journées à
+      recopier des ouvrages, à la demande. Un savant de passage prêtait son livre. Le
+      copiste en faisait une nouvelle version, qui restait dans la ville.
+    </p>
+    <p>
+      Ce système explique la richesse des collections. Chaque visiteur laissait quelque
+      chose derrière lui. Petit à petit, Tombouctou a rassemblé des textes venus du Maghreb,
+      d'Égypte, du Proche-Orient et d'Espagne musulmane.
+    </p>
+    <p>
+      La ville comptait alors plusieurs dizaines de milliers d'habitants. Une partie
+      importante de la population vivait du savoir : maîtres, étudiants, copistes,
+      relieurs, marchands de papier.
+    </p>
+
+    <p class="vx-exergue">
+      « À Tombouctou, les livres se vendaient plus cher que toute autre marchandise. »
+    </p>
+
+    <!-- ---------------- Section 3 ---------------- -->
+    <h3 class="vx-soustitre">Sankoré, une université sans murs</h3>
+
+    <p>
+      On parle souvent de « l'université de Sankoré ». Le mot peut tromper. Il n'y avait
+      ni amphithéâtres, ni inscriptions administratives, ni diplômes imprimés.
+    </p>
+    <p>
+      L'enseignement se faisait autrement. Un maître s'installait dans la cour d'une
+      mosquée ou chez lui. Les étudiants s'asseyaient autour de lui, en cercle. On lisait
+      un ouvrage, ligne après ligne. Le maître expliquait. L'étudiant recopiait.
+    </p>
+    <p>
+      Quand un étudiant avait bien étudié un livre, le maître lui remettait une
+      autorisation écrite. Ce document lui permettait d'enseigner à son tour ce même
+      ouvrage. C'était une sorte de diplôme, mais lié à un livre précis et à un maître
+      précis.
+    </p>
+    <p>
+      Un étudiant sérieux passait ainsi de maître en maître. Il pouvait étudier vingt ans.
+      Certains parcouraient des milliers de kilomètres pour suivre l'enseignement d'un
+      savant réputé.
+    </p>
+    <p>
+      Le plus célèbre d'entre eux se nomme Ahmed Baba. Né en 1556, il écrit des dizaines
+      d'ouvrages. Il raconte que sa propre bibliothèque comptait environ mille six cents
+      volumes. Et il ajoute, sans fausse modestie, que c'était la plus petite de sa famille.
+    </p>
+    <p>
+      La vie d'étudiant n'était pas facile. Il fallait se loger, se nourrir et surtout
+      acheter du papier. Beaucoup de jeunes gens travaillaient à côté de leurs études,
+      souvent comme copistes.
+    </p>
+    <p>
+      L'apprentissage reposait d'abord sur la mémoire. On apprenait par cœur de longs
+      textes, parfois entièrement en vers, car les vers se retiennent mieux. L'écrit venait
+      ensuite, pour fixer et vérifier.
+    </p>
+    <p>
+      Les cercles d'étude n'étaient pas réservés aux hommes. Plusieurs sources signalent
+      des femmes savantes, qui enseignaient et possédaient leurs propres livres. Leurs noms
+      apparaissent dans les chaînes de transmission des ouvrages.
+    </p>
+
+    <!-- ---------------- Section 4 ---------------- -->
+    <h3 class="vx-soustitre">Que contiennent vraiment ces manuscrits ?</h3>
+
+    <p>
+      Beaucoup de gens imaginent que ces livres ne parlent que de religion. C'est faux.
+      La religion y occupe une place importante, mais elle est loin d'être seule.
+    </p>
+    <p>
+      On y trouve des traités d'astronomie. Des savants y notent la position des étoiles,
+      calculent les phases de la lune et décrivent des éclipses observées sur place.
+    </p>
+    <p>
+      On y trouve des mathématiques, souvent liées à des questions pratiques : partager un
+      héritage, mesurer un champ, calculer une part de bénéfice dans une association
+      commerciale.
+    </p>
+    <p>
+      On y trouve de la médecine et de la pharmacie. Les auteurs décrivent des plantes,
+      leurs usages, des préparations. Certains manuscrits expliquent comment soigner une
+      blessure ou faire baisser une fièvre.
+    </p>
+    <p>
+      On y trouve du droit, en très grande quantité. Les juristes tranchent des affaires
+      concrètes : un litige entre voisins, une vente contestée, une question d'héritage.
+      Ces textes racontent la vie quotidienne mieux que n'importe quelle chronique.
+    </p>
+    <p>
+      On y trouve enfin de la poésie, des chroniques historiques, des généalogies
+      familiales, des lettres personnelles, des contrats et des reçus. Un marchand y note
+      ce qu'on lui doit. Un père y écrit à son fils parti étudier au loin.
+    </p>
+    <p>
+      La plupart de ces textes sont écrits en arabe. Mais beaucoup utilisent l'alphabet
+      arabe pour écrire des langues africaines : le songhaï, le tamacheq, le peul, le
+      bambara. Cette écriture porte un nom : l'ajami.
+    </p>
+    <p>
+      Certains manuscrits sont de véritables surprises. On y lit des conseils sur la
+      conduite des affaires, des règles pour bien traiter ses associés, ou encore des
+      réflexions sur le bon usage de la richesse.
+    </p>
+    <p>
+      D'autres racontent l'histoire de la région elle-même. Deux grandes chroniques,
+      rédigées au dix-septième siècle, retracent la succession des empires du Sahel. Elles
+      restent aujourd'hui des sources majeures pour les historiens.
+    </p>
+    <p>
+      Il existe même des textes qui ressemblent à nos manuels scolaires. Ils présentent une
+      matière étape par étape, avec des exemples et des exercices, pour aider l'élève à
+      progresser seul.
+    </p>
+
+    <!-- Illustration 2 : manuscrit ouvert -->
+    <svg class="vx-illus" viewBox="0 0 680 260" role="img"
+         aria-label="Manuscrit ancien ouvert, avec motifs géométriques">
+      <rect width="680" height="260" fill="#F3EBDD"/>
+      <g>
+        <rect x="60" y="30" width="270" height="200" rx="4" fill="#EFE2C8" stroke="#CBB894" stroke-width="2"/>
+        <rect x="350" y="30" width="270" height="200" rx="4" fill="#EFE2C8" stroke="#CBB894" stroke-width="2"/>
+        <rect x="336" y="30" width="8" height="200" fill="#B99F76"/>
+      </g>
+      <!-- lignes de texte -->
+      <g fill="#6B5B44">
+        <rect x="82" y="62" width="226" height="5" rx="2.5"/>
+        <rect x="82" y="80" width="226" height="5" rx="2.5"/>
+        <rect x="82" y="98" width="190" height="5" rx="2.5"/>
+        <rect x="82" y="132" width="226" height="5" rx="2.5"/>
+        <rect x="82" y="150" width="226" height="5" rx="2.5"/>
+        <rect x="82" y="168" width="210" height="5" rx="2.5"/>
+        <rect x="82" y="186" width="150" height="5" rx="2.5"/>
+        <rect x="372" y="80" width="226" height="5" rx="2.5"/>
+        <rect x="372" y="98" width="226" height="5" rx="2.5"/>
+        <rect x="372" y="116" width="196" height="5" rx="2.5"/>
+        <rect x="372" y="150" width="226" height="5" rx="2.5"/>
+        <rect x="372" y="168" width="176" height="5" rx="2.5"/>
+      </g>
+      <!-- enluminures -->
+      <g fill="none" stroke="#8A5A2B" stroke-width="2.5">
+        <rect x="372" y="44" width="226" height="24" rx="3"/>
+        <path d="M372 56h226M400 44v24M428 44v24M456 44v24M484 44v24M512 44v24M540 44v24M568 44v24"/>
+      </g>
+      <g fill="#C0392B">
+        <circle cx="300" cy="204" r="6"/>
+        <circle cx="590" cy="190" r="6"/>
+      </g>
+    </svg>
+    <p class="vx-legende">Astronomie, droit, médecine, poésie : les sujets abordés sont très variés.</p>
+
+    <!-- ---------------- Section 5 ---------------- -->
+    <h3 class="vx-soustitre">Fabriquer un livre au cœur du Sahara</h3>
+
+    <p>
+      Faire un livre à Tombouctou demandait beaucoup de patience. Chaque étape coûtait
+      cher.
+    </p>
+    <p>
+      Le papier ne se fabriquait pas sur place. Il arrivait par caravane, depuis l'Afrique
+      du Nord et parfois depuis l'Europe. Les spécialistes le savent grâce aux filigranes,
+      ces marques dessinées dans l'épaisseur de la feuille, qui indiquent l'atelier
+      d'origine.
+    </p>
+    <p>
+      L'encre, elle, se préparait sur place. On mélangeait de la suie, de la gomme
+      arabique et des extraits de plantes. Le noir servait au texte principal. Le rouge
+      servait à mettre en valeur les titres et les passages importants.
+    </p>
+    <p>
+      Les copistes travaillaient à la main, page après page. Un ouvrage important pouvait
+      demander plusieurs mois de travail. Les erreurs se corrigeaient dans la marge.
+    </p>
+    <p>
+      Les plus beaux volumes recevaient des décorations géométriques, parfois rehaussées
+      d'or. La reliure se faisait en cuir travaillé. Certains manuscrits étaient rangés
+      dans un étui de cuir souple, qui protégeait les pages du sable et de la poussière.
+    </p>
+    <p>
+      Comme chaque copie était unique, deux exemplaires du même texte ne se ressemblent
+      jamais tout à fait. C'est ce qui rend chaque manuscrit précieux.
+    </p>
+    <p>
+      Les copistes laissaient souvent une trace personnelle. À la dernière page, beaucoup
+      notaient leur nom, la date, et parfois une phrase sur les conditions de leur travail.
+      Certains se plaignent du froid, de la fatigue ou d'une mauvaise encre.
+    </p>
+    <p>
+      Ces petites notes sont précieuses. Elles permettent de dater un ouvrage, de le situer
+      et de reconstituer le parcours d'un texte d'une ville à l'autre.
+    </p>
+    <p>
+      Le prix d'un livre restait élevé. Acheter un ouvrage important pouvait représenter
+      plusieurs mois de revenus. C'est pourquoi on prêtait beaucoup, et pourquoi le vol
+      d'un manuscrit était considéré comme une faute grave.
+    </p>
+
+    <!-- ---------------- Section 6 ---------------- -->
+    <h3 class="vx-soustitre">Les bibliothèques de famille</h3>
+
+    <p>
+      Voici le point le plus étonnant de cette histoire. Ces manuscrits n'ont pas été
+      conservés par un État ou par une grande institution. Ils ont été gardés par des
+      familles.
+    </p>
+    <p>
+      Une bibliothèque se transmettait comme un héritage. Le père la confiait à un fils ou
+      à un neveu. Celui-ci en devenait le gardien. Il devait la protéger, la compléter, et
+      la transmettre à son tour.
+    </p>
+    <p>
+      Plusieurs de ces collections familiales sont aujourd'hui connues et portent le nom
+      de leur famille. Certaines rassemblent plusieurs milliers de volumes. Elles ont
+      traversé de très nombreuses générations.
+    </p>
+    <p>
+      Les conditions de conservation n'étaient pas toujours idéales. Les livres dormaient
+      dans des malles, dans des armoires, parfois dans des pièces sombres. Le sable, la
+      chaleur sèche et les insectes menaçaient le papier.
+    </p>
+    <p>
+      Pourtant, l'essentiel a survécu. On estime aujourd'hui que la région abrite plusieurs
+      dizaines de milliers de manuscrits. Certaines estimations, plus larges, dépassent
+      les trois cent mille documents.
+    </p>
+    <p>
+      Personne ne connaît le chiffre exact. Beaucoup de collections n'ont jamais été
+      recensées.
+    </p>
+    <p>
+      Pour protéger leurs livres, les familles ont parfois fait preuve d'une grande
+      prudence. On enterrait des malles. On murait des pièces. On dispersait une
+      collection entre plusieurs maisons, pour éviter de tout perdre d'un coup.
+    </p>
+    <p>
+      Ces réflexes se sont transmis avec les livres eux-mêmes. Aujourd'hui encore,
+      certaines familles hésitent à montrer l'ensemble de leur collection. La méfiance
+      fait partie de l'héritage.
+    </p>
+
+    <p class="vx-exergue">
+      « Chaque famille gardait ses livres comme on garde un nom. »
+    </p>
+
+    <!-- ---------------- Section 7 ---------------- -->
+    <h3 class="vx-soustitre">Sauver la mémoire : le travail d'aujourd'hui</h3>
+
+    <p>
+      Depuis les années 1970, un institut public a été créé pour rassembler, étudier et
+      protéger ces documents. Il porte le nom d'Ahmed Baba, en hommage au grand savant.
+    </p>
+    <p>
+      Le travail de conservation commence par des gestes simples. On dépoussière chaque
+      feuille avec un pinceau doux. On répare les déchirures avec du papier fin. On range
+      les volumes à plat, dans des boîtes qui ne contiennent pas d'acide.
+    </p>
+    <p>
+      Vient ensuite la numérisation. Chaque page est photographiée en haute définition.
+      L'image est enregistrée, décrite, classée. Le manuscrit d'origine peut alors
+      retourner dans sa boîte et se reposer.
+    </p>
+    <p>
+      Cette étape change tout. Un chercheur d'Abidjan, de Dakar ou de Bamako peut
+      consulter une page sans déplacer le document. Le manuscrit, lui, souffre beaucoup
+      moins.
+    </p>
+    <p>
+      Mais le chantier reste immense. Photographier une page prend du temps. Il faut du
+      matériel, de l'électricité stable, et surtout des personnes formées.
+    </p>
+    <p>
+      Beaucoup de textes n'ont d'ailleurs jamais été traduits. Des dizaines de milliers de
+      pages attendent encore d'être lues par un spécialiste.
+    </p>
+    <p>
+      Une difficulté vient de la langue. Lire ces manuscrits demande de maîtriser l'arabe
+      ancien, mais aussi de reconnaître des écritures régionales très particulières. Peu de
+      chercheurs réunissent ces deux compétences.
+    </p>
+    <p>
+      Une autre difficulté vient du classement. Beaucoup de volumes n'ont ni titre visible,
+      ni nom d'auteur. Il faut lire les premières lignes pour deviner de quoi il s'agit.
+      Ce travail d'identification prend des années.
+    </p>
+    <p>
+      Des formations se mettent en place pour préparer une nouvelle génération de
+      spécialistes africains. C'est sans doute la condition la plus importante pour la
+      suite.
+    </p>
+
+    <!-- Illustration 3 : motif astronomique -->
+    <svg class="vx-illus" viewBox="0 0 680 200" role="img"
+         aria-label="Motif d'astrolabe et carte du ciel">
+      <rect width="680" height="200" fill="#EFE6D4"/>
+      <g stroke="#8A5A2B" fill="none" stroke-width="2">
+        <circle cx="340" cy="100" r="76"/>
+        <circle cx="340" cy="100" r="58"/>
+        <circle cx="340" cy="100" r="34"/>
+        <path d="M264 100h152M340 24v152"/>
+        <path d="M286 46l108 108M394 46L286 154"/>
+      </g>
+      <g fill="#8A5A2B">
+        <circle cx="340" cy="100" r="7"/>
+        <circle cx="340" cy="24" r="4"/>
+        <circle cx="340" cy="176" r="4"/>
+        <circle cx="264" cy="100" r="4"/>
+        <circle cx="416" cy="100" r="4"/>
+      </g>
+      <g fill="#B98F52">
+        <circle cx="96" cy="52" r="3"/><circle cx="140" cy="120" r="2.5"/>
+        <circle cx="70" cy="146" r="2"/><circle cx="180" cy="64" r="2.5"/>
+        <circle cx="560" cy="60" r="3"/><circle cx="608" cy="132" r="2.5"/>
+        <circle cx="512" cy="150" r="2"/><circle cx="640" cy="70" r="2.5"/>
+      </g>
+    </svg>
+    <p class="vx-legende">Les savants notaient la position des étoiles et le calendrier lunaire.</p>
+
+    <!-- ---------------- Section 8 ---------------- -->
+    <h3 class="vx-soustitre">Un héritage qui parle d'aujourd'hui</h3>
+
+    <p>
+      Pourquoi cette histoire compte-t-elle encore ? Parce qu'elle corrige une idée fausse
+      et tenace.
+    </p>
+    <p>
+      On a longtemps répété que l'Afrique de l'Ouest n'avait pas d'écriture avant l'arrivée
+      des Européens, et que sa mémoire n'était qu'orale. Les manuscrits de Tombouctou
+      démentent cette affirmation, page après page.
+    </p>
+    <p>
+      L'oral et l'écrit ont coexisté pendant des siècles. Le griot racontait. Le copiste
+      écrivait. Les deux mémoires se complétaient au lieu de s'opposer.
+    </p>
+    <p>
+      Ces documents montrent aussi une Afrique connectée. Un juriste de Tombouctou citait
+      des auteurs du Caire ou de Cordoue. Un savant du Maroc lisait les réponses d'un
+      collègue installé au bord du Niger. Les idées voyageaient avec les caravanes.
+    </p>
+    <p>
+      Enfin, ces manuscrits rappellent une chose simple. Le savoir a été protégé, ici, par
+      des familles ordinaires. Pas par des rois, pas par des armées. Par des gens qui ont
+      décidé, génération après génération, que ces pages valaient la peine d'être gardées.
+    </p>
+    <p>
+      C'est peut-être la leçon la plus utile de toute cette histoire.
+    </p>
+    <p>
+      Pour l'étudiant d'aujourd'hui, ces manuscrits ont une autre valeur encore. Ils
+      montrent que le savoir n'a jamais eu un seul centre. Il s'est construit partout, en
+      même temps, par des allers-retours constants.
+    </p>
+    <p>
+      Une page écrite au bord du Niger il y a cinq cents ans peut encore apprendre quelque
+      chose à un lecteur d'Abidjan. Il suffit qu'elle soit conservée, lue et transmise.
+    </p>
+
+  </article>
+
+  <!-- ============ FIN DE LECTURE ============ -->
+  <div class="vx-fin">
+    <div class="vx-fin-carte">
+      <h3>Vous avez terminé l'article</h3>
+      <p>
+        Appuyez sur le bouton ci-dessous pour afficher votre code.
+        Vous devrez le recopier dans le questionnaire.
+      </p>
+      <button type="button" class="vx-bouton" id="vxRevele">J'ai terminé ma lecture</button>
+
+      <div class="vx-jeton" id="vxJeton">
+        <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:13px;">
+          Votre code :
+        </p>
+        <div class="vx-jeton-valeur" id="vxValeur">—</div>
+        <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;">
+          Recopiez ce code dans le questionnaire, puis fermez cette page.
+        </p>
+
+        <div class="vx-note">
+          <strong>À propos de cette page.</strong><br>
+          Cette page a été créée dans le cadre d'une recherche universitaire en sciences de
+          gestion. Le magazine <em>Méridiens d'Afrique</em> n'existe pas. La marque
+          <em>VELTRIA</em> et l'annonce commerciale que vous avez vue sont entièrement
+          inventées pour les besoins de l'étude. Aucun véhicule n'est en vente, aucune
+          offre n'est réelle et aucune commande n'est possible.<br><br>
+          Les informations historiques de l'article sont en revanche exactes.<br><br>
+          Aucune donnée personnelle n'a été enregistrée sur cette page.
+          Merci de votre participation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     VOILE PLEIN ÉCRAN
+     ============================================================ -->
+<div class="vx-voile" id="vxVoile" role="dialog" aria-label="Message commercial">
+  <div class="vx-carte" id="vxCarte">
+
+    <button type="button" class="vx-fermer" id="vxFermer"
+            aria-label="Fermer" style="display:none">&times;</button>
+
+    <span class="vx-etiquette">Édition limitée</span>
+
+    <h2 class="vx-nom">VELTRIA</h2>
+    <p class="vx-modele">Aurea</p>
+    <p class="vx-slogan">L'élégance n'attend pas.</p>
+
+    <!-- Véhicule stylisé -->
+    <svg class="vx-vehicule" viewBox="0 0 400 170" role="img"
+         aria-label="Véhicule tout-terrain compact stylisé">
+      <defs>
+        <linearGradient id="vxTole" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4A5570"/>
+          <stop offset="55%" stop-color="#2B3348"/>
+          <stop offset="100%" stop-color="#161C2B"/>
+        </linearGradient>
+        <linearGradient id="vxVitre" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#9FB4D8"/>
+          <stop offset="100%" stop-color="#4E627F"/>
+        </linearGradient>
+        <radialGradient id="vxHalo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#D4A34A" stop-opacity=".45"/>
+          <stop offset="100%" stop-color="#D4A34A" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <ellipse cx="200" cy="120" rx="180" ry="42" fill="url(#vxHalo)"/>
+
+      <!-- carrosserie -->
+      <path d="M46 118c-6-2-9-8-9-16l2-18c1-7 6-12 13-14l38-8 30-24c6-5 13-7 21-7h84c9 0 17 3 24 9l26 22 40 9c9 2 15 9 16 18l1 13c0 8-5 14-13 15z"
+            fill="url(#vxTole)"/>
+      <!-- vitrage -->
+      <path d="M132 62l22-18c4-3 8-5 13-5h34v23zM212 62V39h30c6 0 11 2 16 6l20 17z"
+            fill="url(#vxVitre)" opacity=".9"/>
+      <!-- ligne de caisse -->
+      <path d="M44 96h312" stroke="#5C6A8A" stroke-width="2" fill="none" opacity=".55"/>
+      <!-- feux -->
+      <rect x="330" y="82" width="28" height="9" rx="4.5" fill="#EBC782"/>
+      <rect x="42" y="84" width="22" height="8" rx="4" fill="#C0392B" opacity=".85"/>
+      <!-- passages de roue -->
+      <path d="M92 120a34 34 0 0 1 68 0zM244 120a34 34 0 0 1 68 0z" fill="#0E1220"/>
+      <!-- roues -->
+      <g>
+        <circle cx="126" cy="120" r="30" fill="#12161F"/>
+        <circle cx="126" cy="120" r="15" fill="#7E879B"/>
+        <circle cx="126" cy="120" r="6" fill="#D4A34A"/>
+        <circle cx="278" cy="120" r="30" fill="#12161F"/>
+        <circle cx="278" cy="120" r="15" fill="#7E879B"/>
+        <circle cx="278" cy="120" r="6" fill="#D4A34A"/>
+      </g>
+      <!-- reflet -->
+      <path d="M70 76l60-6 90-3 100 4" stroke="#8FA0C4" stroke-width="2.5"
+            fill="none" opacity=".4" stroke-linecap="round"/>
+    </svg>
+
+    <p class="vx-depuis">À partir de</p>
+    <p class="vx-prix">8 900 000 FCFA</p>
+
+    <ul class="vx-atouts">
+      <li>Financement 0 % sur 12 mois</li>
+      <li>Garantie 5 ans, entretien inclus</li>
+      <li>Livraison sous 15 jours</li>
+    </ul>
+
+    <p class="vx-urgence">
+      Offre réservée aux 50 premiers acheteurs &middot; Jusqu'au 31 août
+    </p>
+
+    <button type="button" class="vx-cta" id="vxCta">Réserver mon essai</button>
+
+    <p class="vx-mentions">
+      Offre soumise à conditions. Prix indicatif hors options et hors frais de mise à la
+      route. Visuel non contractuel.
+    </p>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ==================================================================
+     RÉGLAGES — tout ce qui est modifiable se trouve ici
+     ================================================================== */
+  var REGLAGES = {
+    seuilDefilement : 0.20,   // fraction de l'article à parcourir pour déclencher (0.20 = 20 %)
+    delaiSecours    : 25,     // secondes : déclenchement si l'internaute n'a pas défilé
+    dureeMax        : 20,     // secondes : fermeture automatique, identique aux 2 conditions
+    cleMemoire      : "vx_seance_v1"
+  };
+
+  /* Alphabet du code : ni O, ni 0, ni I, ni 1, ni l. 31 caractères. */
+  var ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+
+  /* ==================================================================
+     ÉTAT DE LA SÉANCE
+     ================================================================== */
+  var etat = {
+    condition   : null,   // 1 ou 2
+    origine     : null,   // "D" = défilement, "T" = temps
+    montre      : false,  // le voile a-t-il déjà été affiché ?
+    ferme       : false,  // fermé par appui sur la croix ?
+    toucheCarte : false,  // appui sur le corps de l'annonce ?
+    dixiemes    : 0       // durée d'exposition, en dixièmes de seconde
+  };
+
+  var horodatage = 0;
+  var minuterieSecours = null;
+  var minuterieMax = null;
+  var ecouteDefilement = null;
+
+  /* ==================================================================
+     MÉMOIRE DE SÉANCE — empêche le rejeu après rechargement
+     ================================================================== */
+  function lireMemoire(){
+    try{
+      var brut = window.sessionStorage.getItem(REGLAGES.cleMemoire);
+      return brut ? JSON.parse(brut) : null;
+    }catch(e){ return null; }
+  }
+  function ecrireMemoire(){
+    try{
+      window.sessionStorage.setItem(REGLAGES.cleMemoire, JSON.stringify(etat));
+    }catch(e){ /* stockage indisponible : la page fonctionne quand même */ }
+  }
+
+  /* ==================================================================
+     LECTURE DU PARAMÈTRE D'ADRESSE
+     ================================================================== */
+  function lireCondition(){
+    var v = null;
+    var chaine = window.location.search || "";
+    var couples = chaine.replace(/^\?/, "").split("&");
+    for(var i=0;i<couples.length;i++){
+      var paire = couples[i].split("=");
+      if(paire[0] === "c"){ v = paire[1]; }
+    }
+    if(v === "1") return 1;
+    if(v === "2") return 2;
+    return null;
+  }
+
+  /* ==================================================================
+     CODE DE COMPLÉTION
+     --------------------------------------------------------------
+     7 caractères : [1] condition   A = c1 (croix présente)
+                                    B = c2 (croix absente)
+                    [2] fermeture   K = croix touchée
+                                    N = pas de croix touchée
+                    [3] annonce     C = corps de l'annonce touché
+                                    N = non touché
+                    [4] origine     D = déclenché par le défilement
+                                    T = déclenché par le délai de secours
+                    [5][6] durée d'exposition en DIXIÈMES de seconde,
+                           codée en base 31 sur l'ALPHABET ci-dessus :
+                           valeur = index(car5) * 31 + index(car6)
+                           puis durée en secondes = valeur / 10
+                    [7] contrôle    somme des index des 6 caractères
+                                    précédents, modulo 31, converti
+                                    par l'ALPHABET. Sert à repérer
+                                    les erreurs de recopie.
+     ================================================================== */
+  function fabriquerCode(){
+    var c1 = (etat.condition === 1) ? "A" : "B";
+    var c2 = etat.ferme ? "K" : "N";
+    var c3 = etat.toucheCarte ? "C" : "N";
+    var c4 = (etat.origine === "D") ? "D" : "T";
+
+    var valeur = etat.dixiemes;
+    if(valeur < 0) valeur = 0;
+    if(valeur > 960) valeur = 960;           // plafond : 2 caractères en base 31
+    var c5 = ALPHABET.charAt(Math.floor(valeur / 31));
+    var c6 = ALPHABET.charAt(valeur % 31);
+
+    var six = c1 + c2 + c3 + c4 + c5 + c6;
+    var somme = 0;
+    for(var i=0;i<six.length;i++){
+      somme += ALPHABET.indexOf(six.charAt(i));
+    }
+    var c7 = ALPHABET.charAt(somme % 31);
+
+    return six + c7;
+  }
+
+  /* ==================================================================
+     AFFICHAGE ET FERMETURE DU VOILE
+     ================================================================== */
+  var voile   = document.getElementById("vxVoile");
+  var carte   = document.getElementById("vxCarte");
+  var croix   = document.getElementById("vxFermer");
+  var cta     = document.getElementById("vxCta");
+
+  function afficherVoile(origine){
+    if(etat.montre) return;
+    etat.montre  = true;
+    etat.origine = origine;
+    horodatage   = Date.now();
+
+    if(etat.condition === 1){
+      croix.style.display = "flex";
+    }else{
+      if(croix && croix.parentNode){ croix.parentNode.removeChild(croix); }
+    }
+
+    voile.classList.add("actif");
+    document.body.style.overflow = "hidden";
+
+    if(minuterieSecours){ clearTimeout(minuterieSecours); minuterieSecours = null; }
+    if(ecouteDefilement){
+      window.removeEventListener("scroll", ecouteDefilement);
+      ecouteDefilement = null;
+    }
+
+    minuterieMax = setTimeout(function(){ masquerVoile(false); },
+                              REGLAGES.dureeMax * 1000);
+    ecrireMemoire();
+  }
+
+  function masquerVoile(parAppui){
+    if(!voile.classList.contains("actif")) return;
+
+    etat.dixiemes = Math.round((Date.now() - horodatage) / 100);
+    etat.ferme    = !!parAppui;
+
+    if(minuterieMax){ clearTimeout(minuterieMax); minuterieMax = null; }
+
+    voile.classList.remove("actif");
+    document.body.style.overflow = "";
+    ecrireMemoire();
+  }
+
+  /* ==================================================================
+     DÉMARRAGE
+     ================================================================== */
+  function demarrer(){
+    var condition = lireCondition();
+
+    /* Paramètre absent ou invalide : on n'affiche rien d'autre. */
+    if(condition === null){
+      document.getElementById("vxAlerte").style.display = "block";
+      return;
+    }
+
+    document.getElementById("vxPage").style.display = "block";
+
+    var ancien = lireMemoire();
+    if(ancien && ancien.montre && ancien.condition === condition){
+      /* Séance déjà jouée : on restaure sans réafficher le voile. */
+      etat = ancien;
+      brancherFin();
+      return;
+    }
+
+    etat.condition = condition;
+
+    /* Déclenchement par le défilement. */
+    ecouteDefilement = function(){
+      var doc  = document.documentElement;
+      var haut = window.pageYOffset || doc.scrollTop || 0;
+      var total = Math.max(1, doc.scrollHeight - window.innerHeight);
+      if((haut / total) >= REGLAGES.seuilDefilement){
+        afficherVoile("D");
+      }
+    };
+    window.addEventListener("scroll", ecouteDefilement, { passive:true });
+
+    /* Déclenchement de secours, si l'internaute ne défile pas. */
+    minuterieSecours = setTimeout(function(){
+      afficherVoile("T");
+    }, REGLAGES.delaiSecours * 1000);
+
+    brancherFin();
+  }
+
+  /* ==================================================================
+     BOUTON DE FIN DE LECTURE
+     ================================================================== */
+  function brancherFin(){
+    var bouton = document.getElementById("vxRevele");
+    bouton.addEventListener("click", function(){
+      /* Si le voile n'a jamais été montré, la séance est incomplète. */
+      if(!etat.montre){
+        bouton.textContent = "Merci de poursuivre votre lecture";
+        return;
+      }
+      document.getElementById("vxValeur").textContent = fabriquerCode();
+      document.getElementById("vxJeton").classList.add("actif");
+      bouton.style.display = "none";
+    });
+  }
+
+  /* ==================================================================
+     ÉCOUTEURS DU VOILE
+     ================================================================== */
+  if(croix){
+    croix.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      masquerVoile(true);
+    });
+  }
+
+  /* Appui sur le corps de l'annonce : enregistré, sans navigation. */
+  carte.addEventListener("click", function(){
+    etat.toucheCarte = true;
+    ecrireMemoire();
+  });
+  cta.addEventListener("click", function(ev){
+    ev.stopPropagation();
+    etat.toucheCarte = true;
+    cta.textContent = "Demande enregistrée";
+    ecrireMemoire();
+  });
+
+  /* Le fond du voile n'est pas cliquable : rien à brancher dessus. */
+
+  demarrer();
+})();
+</script>
+
+</body>
+</html>
